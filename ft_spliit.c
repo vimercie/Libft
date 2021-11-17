@@ -1,41 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_spliit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 17:37:32 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/17 18:27:44 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2021/11/10 16:46:13 by vimercie          #+#    #+#             */
+/*   Updated: 2021/11/17 18:47:55 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	**ft_split(char const *s, char c)
 {
+	char	**tab;
 	size_t	i;
 	size_t	j;
-	char	*str;
+	size_t	start;
 
+	tab = NULL;
 	i = 0;
 	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!str)
-		return (NULL);
-	while (s1[i])
+	start = 0;
+	while (s[i])
 	{
-		str[i] = s1[i];
+		if (s[i] == c)
+		{
+			tab[j] = ft_substr(s, start, i);
+			start = i;
+			j++;
+		}
 		i++;
 	}
-	while (s2[j])
+	i = 0;
+	while (tab[i])
 	{
-		str[i] = s2[j];
+		tab[i] = ft_strtrim(tab[i], &c);
 		i++;
-		j++;
 	}
-	str[i] = 0;
-	return (str);
+	tab[i] = NULL;
+	return (tab);
+}
+
+int	main(void)
+{
+	char	*s;
+	char	**tab;
+	size_t	i;
+
+	s = "bonsoir | comment | ca | va ?";
+	tab = ft_split(s, '|');
+	i = 0;
+	while (tab[i])
+	{
+		printf("%s\n", tab[i]);
+		i++;
+	}
 }

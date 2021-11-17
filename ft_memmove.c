@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:16:37 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/04 13:55:05 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/16 17:43:48 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	void	*tmp;
 
 	tmp = dst;
-	if (src == NULL || dst == NULL)
+	if (src == NULL && dst == NULL)
 	{
 		return (dst);
 	}

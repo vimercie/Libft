@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:50:30 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/07 13:58:17 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/16 17:43:26 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	tmp = dest;
 	i = 0;
-	if (src == NULL || dest == NULL)
+	if (src == NULL && dest == NULL)
 		return (dest);
 	while (i < n)
 	{

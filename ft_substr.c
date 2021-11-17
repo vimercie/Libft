@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:23:19 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/10 16:43:08 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/17 18:22:24 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	size_t	len_str;
 	char	*str;
 
+	i = 0;
+	if (!s)
+		return (NULL);
 	if (start > ft_strlen(s))
 		return (ft_calloc(1, sizeof(char)));
-	i = 0;
-	len_str = ft_strlen(s) - start;
-	str = ft_calloc(len_str, sizeof(char));
+	if (ft_strlen(s) < start + len)
+		str = ft_calloc((ft_strlen(s) - start) + 1, sizeof(char));
+	else
+		str = ft_calloc(len + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	while (s[start] && i < len)
@@ -31,6 +34,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		start++;
 		i++;
 	}
-	str[i] = 0;
 	return (str);
 }

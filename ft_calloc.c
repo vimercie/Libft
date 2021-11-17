@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:30:16 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/06 15:56:28 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/16 17:20:44 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_calloc(size_t count, size_t size)
 	i = 0;
 	total_size = count * size;
 	ptr = malloc(total_size);
+	if (!ptr)
+		return (NULL);
 	while (i < total_size)
 	{
 		*((char *)ptr + i) = '\0';

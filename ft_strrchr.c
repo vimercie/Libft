@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:50:51 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/08 14:04:57 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/16 17:48:40 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	unsigned char	tmp;
-	size_t			i;
+	int				i;
 
 	tmp = c;
-	i = ft_strlen(s) - 1;
+	i = ft_strlen(s);
 	if (c == 0)
-		return ((char *)s + i + 1);
-	while (s[i])
+		return ((char *)s + i);
+	while (i >= 0)
 	{
 		if (s[i] == tmp)
 			return ((char *)s + i);
