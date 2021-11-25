@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 16:35:57 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/17 18:30:39 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/25 15:57:11 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-	{
-		write(fd, &(s[i]), 1);
-		i++;
-	}
+	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }

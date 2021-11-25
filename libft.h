@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 18:12:35 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/17 15:53:19 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/23 18:35:56 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-// char	**ft_split(char const *s, char c);
-// char	*ft_itoa(int n);
+char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
 
 #endif

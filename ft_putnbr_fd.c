@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:01:12 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/16 17:10:11 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2021/11/25 15:58:45 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		ft_putchar_fd('-', fd);
 		ft_putnbr_fd(-n, fd);
-		return ;
 	}
 	if (n > 9)
 		ft_putnbr_fd(n / 10, fd);
 	ft_putchar_fd((n % 10) + '0', fd);
-	return ;
 }
