@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 17:49:08 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/17 18:20:00 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2022/04/06 01:38:12 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static	size_t	ft_trim_end(char const *s1, char const *set)
 	j = 0;
 	while (set[j])
 	{
-		if (s1[i - 1] == set[j] && (i - 1) >= 0)
+		if (s1[i - 1] == set[j] && i > 0)
 		{
 			i--;
 			j = 0;

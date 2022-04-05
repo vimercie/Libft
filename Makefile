@@ -36,7 +36,7 @@ SRCFILES=	ft_isalnum.c			\
 			get_next_line_utils.c
 
 
-HEADFILES=  libft.h			\
+HEADFILES=  libft.h					\
 			get_next_line.h
 
 OBJFILES=   ${SRCFILES:.c=.o}
@@ -45,8 +45,10 @@ NAME=       libft.a
 
 CC=         gcc
 
+FLAGS=		-Wall -Wextra -Werror
+
 .c.o:		${OBJFILES}
-			${CC} -Wall -Wextra -Werror -I includes -c  $< -o ${<:.c=.o}
+			${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:    ${OBJFILES}
 			ar rc ${NAME} ${OBJFILES}
@@ -60,10 +62,6 @@ fclean:     clean
 			rm -f ${NAME}
 
 re:         fclean all
-
-rebonus:    fclean bonus
-
-bonus:      ${SRCFILES+=BONUSFILES} ${NAME}
         
 .PHONY: 	all clean fclean re
 
