@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 15:56:26 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/25 15:09:44 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2022/04/01 19:04:26 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_atoi(const char *str)
 	i = 0;
 	res = 0;
 	is_negative = 1;
+	if (!*str)
+		return (0);
 	while (ft_strchr(" \t\n\v\f\r", str[i]))
 		i++;
 	if (str[i] == '+' || str[i] == '-')

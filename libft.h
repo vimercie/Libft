@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Libft.h                                            :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 18:12:35 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/23 18:35:56 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2022/04/01 19:04:32 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdio.h>
+# include "get_next_line.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

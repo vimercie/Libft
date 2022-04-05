@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 14:16:37 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/28 11:58:00 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2021/11/24 11:56:35 by vimercie          #+#    #+#             */
+/*   Updated: 2022/03/23 17:32:36 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFFER_SIZE 20
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
-{
-	void	*tmp;
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include "libft.h"
 
-	tmp = dst;
-	if (src == NULL && dst == NULL)
-		return (dst);
-	if (dst < src)
-		return (ft_memcpy(dst, src, n));
-	else if (dst > src)
-	{
-		while (n)
-		{
-			n--;
-			*((char *)dst + n) = *((char *)src + n);
-		}
-	}
-	return (tmp);
-}
+char	*get_next_line(int fd);
+int		newline_chr(char *s, int start);
+char	*gnl_substr(char const *s, unsigned int start, size_t len);
+char	*gnl_strjoin(char *s1, char *s2);
+
+#endif
