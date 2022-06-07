@@ -1,19 +1,22 @@
-SRCFILES=	ft_isalnum.c			\
-            ft_isalpha.c			\
-            ft_isascii.c			\
-            ft_isdigit.c			\
-            ft_isprint.c			\
-            ft_strlen.c				\
-            ft_memset.c 			\
-            ft_bzero.c				\
-            ft_memcpy.c				\
-            ft_memmove.c			\
-            ft_strlcpy.c			\
-            ft_toupper.c			\
-            ft_tolower.c			\
-            ft_strchr.c				\
-            ft_strrchr.c			\
-            ft_strncmp.c			\
+NAME=       libft.a
+
+SRC=		ft_isalnum.c			\
+			ft_isalpha.c			\
+			ft_isascii.c			\
+			ft_isdigit.c			\
+			ft_isprint.c			\
+			ft_strlen.c				\
+			ft_memset.c 			\
+			ft_bzero.c				\
+			ft_memcpy.c				\
+			ft_memmove.c			\
+			ft_strlcpy.c			\
+			ft_toupper.c			\
+			ft_tolower.c			\
+			ft_strchr.c				\
+			ft_strrchr.c			\
+			ft_strcmp.c				\
+			ft_strncmp.c			\
 			ft_memcmp.c				\
 			ft_strnstr.c			\
 			ft_atoi.c				\
@@ -36,33 +39,31 @@ SRCFILES=	ft_isalnum.c			\
 			get_next_line_utils.c
 
 
-HEADFILES=  libft.h					\
+INC=  		libft.h					\
 			get_next_line.h
 
-OBJFILES=   ${SRCFILES:.c=.o}
-
-NAME=       libft.a
+OBJ=		${SRC:.c=.o}
 
 CC=         gcc
 
-FLAGS=		-Wall -Wextra -Werror
+CFLAGS=		-Wall -Wextra -Werror
 
-.c.o:		${OBJFILES}
-			${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+all:		${NAME} 
 
-${NAME}:    ${OBJFILES}
-			ar rc ${NAME} ${OBJFILES}
+${NAME}:    ${OBJ}
+			ar rc ${NAME} ${OBJ}
 
-all:        ${NAME}
+%.o:		%.c ${INC}
+			${CC} ${CFLAGS} -c $< -o $@
 
-clean: 
-			rm -f ${OBJFILES}
+clean:
+			rm -f ${OBJ}
 
-fclean:     clean
+fclean:		clean
 			rm -f ${NAME}
 
-re:         fclean all
-        
+re:			fclean all
+		
 .PHONY: 	all clean fclean re
 
 # <cible> : <dependance>

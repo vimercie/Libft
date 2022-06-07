@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 15:56:26 by vimercie          #+#    #+#             */
-/*   Updated: 2022/04/28 16:01:53 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2021/08/11 14:07:11 by vimercie          #+#    #+#             */
+/*   Updated: 2022/06/05 15:58:22 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
-	int	res;
-	int	is_negative;
+	int		i;
+	int		diff;
 
 	i = 0;
-	res = 0;
-	is_negative = 1;
-	if (!*str)
-		return (0);
-	while (ft_strchr(" \t\n\v\f\r", str[i]))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (s1[i] && s2[i])
 	{
-		if (str[i] == '-')
-			is_negative = is_negative * (-1);
-		if (str[i + 1] == '+' || str[i + 1] == '-')
-			return (0);
+		diff = (unsigned char)s1[i] - (unsigned char)s2[i];
+		if (diff != 0)
+			return (diff);
 		i++;
 	}
-	while (ft_isdigit(str[i]))
-	{
-		res = (res * 10) + (str[i] - '0');
-		i++;
-	}
-	return (res * is_negative);
+	return (0);
 }
