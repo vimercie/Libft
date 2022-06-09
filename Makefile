@@ -1,5 +1,11 @@
 NAME=       libft.a
 
+VPATH=		src/
+
+OBJDIR=		obj
+
+INCDIR=		inc
+
 SRC=		ft_isalnum.c			\
 			ft_isalpha.c			\
 			ft_isascii.c			\
@@ -39,28 +45,33 @@ SRC=		ft_isalnum.c			\
 			get_next_line_utils.c
 
 
-INC=  		libft.h					\
-			get_next_line.h
+OBJ=		${addprefix ${OBJDIR}/,	\
+			${SRC:.c=.o}}
 
-OBJ=		${SRC:.c=.o}
+INC=  		${addprefix ${INCDIR}/,	\
+			libft.h					\
+			get_next_line.h}
 
 CC=         gcc
 
 CFLAGS=		-Wall -Wextra -Werror
 
-all:		${NAME} 
+all:		${OBJDIR} ${NAME} 
 
-${NAME}:    ${OBJ}
+${NAME}:    ${OBJ} ${INC}
 			ar rc ${NAME} ${OBJ}
 
-%.o:		%.c ${INC}
+${OBJDIR}:
+			mkdir -p obj
+
+${OBJDIR}/%.o:	%.c ${INC}
 			${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-			rm -f ${OBJ}
+			rm -rf ${OBJDIR}
 
 fclean:		clean
-			rm -f ${NAME}
+			rm -rf ${NAME}
 
 re:			fclean all
 		
