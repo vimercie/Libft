@@ -6,12 +6,11 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:39:08 by vimercie          #+#    #+#             */
-/*   Updated: 2022/06/09 14:11:59 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2022/06/14 15:12:18 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/get_next_line.h"
-
 
 int	newline_chr(char *s, int start)
 {
