@@ -64,7 +64,7 @@ ${NAME}:    ${OBJ} ${INC}
 ${OBJDIR}:
 			mkdir -p obj
 
-${OBJDIR}/%.o:	%.c ${INC}
+${OBJDIR}/%.o:	%.c ${INC} Makefile
 			${CC} ${CFLAGS} -c $< -o $@
 
 clean:
