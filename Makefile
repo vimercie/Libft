@@ -1,19 +1,28 @@
-SRCFILES=	ft_isalnum.c			\
-            ft_isalpha.c			\
-            ft_isascii.c			\
-            ft_isdigit.c			\
-            ft_isprint.c			\
-            ft_strlen.c				\
-            ft_memset.c 			\
-            ft_bzero.c				\
-            ft_memcpy.c				\
-            ft_memmove.c			\
-            ft_strlcpy.c			\
-            ft_toupper.c			\
-            ft_tolower.c			\
-            ft_strchr.c				\
-            ft_strrchr.c			\
-            ft_strncmp.c			\
+NAME=       libft.a
+
+VPATH=		src/
+
+OBJDIR=		obj
+
+INCDIR=		inc
+
+SRC=		ft_isalnum.c			\
+			ft_isalpha.c			\
+			ft_isascii.c			\
+			ft_isdigit.c			\
+			ft_isprint.c			\
+			ft_strlen.c				\
+			ft_memset.c 			\
+			ft_bzero.c				\
+			ft_memcpy.c				\
+			ft_memmove.c			\
+			ft_strlcpy.c			\
+			ft_toupper.c			\
+			ft_tolower.c			\
+			ft_strchr.c				\
+			ft_strrchr.c			\
+			ft_strcmp.c				\
+			ft_strncmp.c			\
 			ft_memcmp.c				\
 			ft_strnstr.c			\
 			ft_atoi.c				\
@@ -36,35 +45,36 @@ SRCFILES=	ft_isalnum.c			\
 			get_next_line_utils.c
 
 
-HEADFILES=  libft.h			\
-			get_next_line.h
+OBJ=		${addprefix ${OBJDIR}/,	\
+			${SRC:.c=.o}}
 
-OBJFILES=   ${SRCFILES:.c=.o}
-
-NAME=       libft.a
+INC=  		${addprefix ${INCDIR}/,	\
+			libft.h					\
+			get_next_line.h}
 
 CC=         gcc
 
-.c.o:		${OBJFILES}
-			${CC} -Wall -Wextra -Werror -I includes -c  $< -o ${<:.c=.o}
+CFLAGS=		-Wall -Wextra -Werror
 
-${NAME}:    ${OBJFILES}
-			ar rc ${NAME} ${OBJFILES}
+all:		${OBJDIR} ${NAME} 
 
-all:        ${NAME}
+${NAME}:    ${OBJ} ${INC}
+			ar rc ${NAME} ${OBJ}
 
-clean: 
-			rm -f ${OBJFILES}
+${OBJDIR}:
+			mkdir -p obj
 
-fclean:     clean
-			rm -f ${NAME}
+${OBJDIR}/%.o:	%.c ${INC} Makefile
+			${CC} ${CFLAGS} -c $< -o $@
 
-re:         fclean all
+clean:
+			rm -rf ${OBJDIR}
 
-rebonus:    fclean bonus
+fclean:		clean
+			rm -rf ${NAME}
 
-bonus:      ${SRCFILES+=BONUSFILES} ${NAME}
-        
+re:			fclean all
+		
 .PHONY: 	all clean fclean re
 
 # <cible> : <dependance>
