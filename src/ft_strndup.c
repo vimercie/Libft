@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:01:07 by vimercie          #+#    #+#             */
-/*   Updated: 2023/02/20 10:20:57 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/02/20 10:38:56 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strndup(const char *s, size_t n)
 		res = ft_calloc(len + 1, sizeof(char));
 	if (res == NULL)
 		return (NULL);
-	while (s[i] && i < len)
+	while (s[i] && i < n)
 	{
 		res[i] = s[i];
 		i++;
