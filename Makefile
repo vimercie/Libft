@@ -52,8 +52,7 @@ OBJ=		${addprefix ${OBJDIR}/,	\
 			${SRC:.c=.o}}
 
 INC=  		${addprefix ${INCDIR}/,	\
-			libft.h					\
-			get_next_line.h}
+			*.h}
 
 CC=         gcc
 
